@@ -1,0 +1,161 @@
+[{
+  "_id": {
+    "$oid": "65bcb8341be3763199110660"
+  },
+  "username": "Eula",
+  "email": "vengeance@photobucket.com",
+  "age": 17,
+  "birthdate": "11/6/1969",
+  "gender": "Female",
+  "address": "477 Brown Alley",
+  "preferredMatchAge": 16,
+  "distance": 590,
+  "MBTI": "INFP",
+  "zodiac": "Aquarius",
+  "sexuality": "Heterosexual"
+},
+{
+  "_id": {
+    "$oid": "65bcb8341be3763199110661"
+  },
+  "username": "Furina",
+  "email": "director@icloud.com",
+  "age": 24,
+  "birthdate": "10/13/1998",
+  "gender": "Female",
+  "address": "Fontaine",
+  "preferredMatchAge": 25,
+  "distance": 40,
+  "MBTI": "ENFJ",
+  "zodiac": "Libra",
+  "sexuality": "Heterosexual"
+},
+{
+  "_id": {
+    "$oid": "65bcb8341be3763199110662"
+  },
+  "username": "Kokomi",
+  "email": "Fishnchips@craigslist.org",
+  "age": 34,
+  "birthdate": "7/12/1997",
+  "gender": "Female",
+  "address": "5 Hoffman Road",
+  "preferredMatchAge": 21,
+  "distance": 537,
+  "MBTI": "ISTJ",
+  "zodiac": "Virgo",
+  "sexuality": "Asexual"
+},
+{
+  "_id": {
+    "$oid": "65bcb8341be3763199110663"
+  },
+  "username": "Diluc",
+  "email": "darkknight@parallels.com",
+  "age": 25,
+  "birthdate": "9/13/2020",
+  "gender": "Male",
+  "address": "9947 Garrison Point",
+  "preferredMatchAge": 17,
+  "distance": 472,
+  "MBTI": "ISTJ",
+  "zodiac": "Capricorn",
+  "sexuality": "Bisexual"
+},
+{
+  "_id": {
+    "$oid": "65bcb8341be3763199110664"
+  },
+  "username": "Wriothesley",
+  "email": "tealover@princeton.edu",
+  "age": 16,
+  "birthdate": "11/20/1932",
+  "gender": "Male",
+  "address": "4 Becker Trail",
+  "preferredMatchAge": 39,
+  "distance": 32,
+  "MBTI": "INFP",
+  "zodiac": "Taurus",
+  "sexuality": "Heterosexual"
+},
+{
+  "_id": {
+    "$oid": "65bcb8341be3763199110665"
+  },
+  "username": "Xiangling",
+  "email": "chef@redcross.org",
+  "age": 32,
+  "birthdate": "3/29/1919",
+  "gender": "Female",
+  "address": "52 Maple Wood Lane",
+  "preferredMatchAge": 29,
+  "distance": 884,
+  "MBTI": "ESTJ",
+  "zodiac": "Pisces",
+  "sexuality": "Heterosexual"
+},
+{
+  "_id": {
+    "$oid": "65bcb8341be3763199110666"
+  },
+  "username": "Amber",
+  "email": "outrider@google.pl",
+  "age": 37,
+  "birthdate": "7/13/1905",
+  "gender": "Non-binary",
+  "address": "9128 Norway Maple Pass",
+  "preferredMatchAge": 26,
+  "distance": 396,
+  "MBTI": "INTJ",
+  "zodiac": "Aries",
+  "sexuality": "Asexual"
+},
+{
+  "_id": {
+    "$oid": "65bcb8341be3763199110667"
+  },
+  "username": "Thoma",
+  "email": "malewife@360.cn",
+  "age": 15,
+  "birthdate": "8/15/1917",
+  "gender": "Male",
+  "address": "16103 7th Parkway",
+  "preferredMatchAge": 19,
+  "distance": 69,
+  "MBTI": "INFJ",
+  "zodiac": "Scorpio",
+  "sexuality": "Heterosexual"
+},
+{
+  "_id": {
+    "$oid": "65bcb8341be3763199110668"
+  },
+  "username": "Tartaglia",
+  "email": "ndishwashingliquid@washingtonpost.com",
+  "age": 21,
+  "birthdate": "4/24/1986",
+  "gender": "Male",
+  "address": "24 Village Way",
+  "preferredMatchAge": 31,
+  "distance": 46,
+  "MBTI": "ISTP",
+  "zodiac": "Leo",
+  "sexuality": "Asexual"
+},
+{
+  "_id": {
+    "$oid": "65bcbddf0c2641eda354eeaa"
+  },
+  "username": "Kazuha",
+  "email": "windboi@gmail.com",
+  "age": 20,
+  "birthdate": "10/29/2003",
+  "gender": "Male",
+  "address": "Liyue",
+  "preferredMatchAge": 20,
+  "distance": 35,
+  "MBTI": "INFP",
+  "zodiac": "Scorpio",
+  "sexuality": "Heterosexual",
+  "__v": 0
+}]
