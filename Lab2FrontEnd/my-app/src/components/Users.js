@@ -25,9 +25,12 @@ function Users() {
     }
 
     return (
-        <div className="d-flex bg-primary justify-content-center align-items-center pad">
-            <div className="width bg-white rounded p-3 marginsp">
-                <Link to="/create" className="btn btn-success btn-sm marginb">
+        <div className="backg pad ">
+            <div className="width boxe marginsp">
+            <div className="tit">
+                <h1>Character Information Organizer</h1>
+            </div>
+                <Link to="/create" className="btn btn-success btn-sm marginb ">
                     Add + 
                 </Link>
                 <table className="table">
