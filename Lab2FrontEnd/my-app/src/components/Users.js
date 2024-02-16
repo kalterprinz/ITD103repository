@@ -3,9 +3,10 @@ import React, {useState, useEffect} from 'react'
 import axios from "axios";
 
 function Users() {
-    const { id } = useParams()
+    const { id } = useParams();
 
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
+    const [searchQuery, setSearchQuery] =useState();
 
     useEffect(() => {
         axios.get('http://localhost:3001/')
@@ -24,12 +25,47 @@ function Users() {
             }).catch(err => console.log(err))
     }
 
+    const filteredData = data.filter(user => {
+        const search = searchQuery ? searchQuery.toLowerCase() : '';
+    
+        const name = user.name ? user.name.toLowerCase() : '';
+        const age = user.age ? user.age.toString() : '';
+        const birthdate = user.birthdate ? user.birthdate.toLowerCase() : '';
+        const gender = user.gender ? user.gender.toLowerCase() : '';
+        const constellation = user.constellation ? user.constellation.toLowerCase() : '';
+        const country = user.country ? user.country.toLowerCase() : '';
+        const affiliation = user.affiliation ? user.affiliation.toLowerCase() : '';
+        const vision = user.vision ? user.vision.toLowerCase() : '';
+        const weapon = user.weapon ? user.weapon.toLowerCase() : '';
+        const artifacts = user.artifacts ? user.artifacts.toLowerCase() : '';
+    
+        return (
+            name.includes(search) ||
+            age.includes(search) ||
+            birthdate.includes(search) ||
+            gender.includes(search) ||
+            constellation.includes(search) ||
+            country.includes(search) ||
+            affiliation.includes(search)||
+            vision.includes(search)||
+            weapon.includes(search)||
+            artifacts.includes(search)
+        );
+    });
+
     return (
         <div className="backg pad ">
             <div className="width boxe marginsp">
             <div className="tit">
                 <h1>Character Information Organizer</h1>
             </div>
+            <input
+                    type="text"
+                    placeholder="Search..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="search"
+                />
                 <Link to="/create" className="btn btn-success btn-sm marginb ">
                     Add + 
                 </Link>
@@ -48,7 +84,7 @@ function Users() {
                     </thead>
                     <tbody>
                         {
-                            data.map((user, index)=>{
+                            filteredData.map((user, index)=>{
                                 return <tr key={index}>
                                     <td>{user.name}</td>
                                     <td>{user.age}</td>
