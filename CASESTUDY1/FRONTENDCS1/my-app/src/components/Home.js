@@ -46,9 +46,10 @@ function Home() {
                 <p className="tagline">finding venue for CCS events just got easier</p>
               </div>
               </Link>
+              <div className="tog">
               <Link to={`/signup`} className="sigbut">Sign up</Link>
               <Link to={`/login`} className="logbut">Log in</Link>
-            </div>
+              </div></div>
       <div className="Choose">
         <Link to={`/`} className="con">CCS Events</Link>
         <Link to={`/calendar/00`} className="ten">Calendar</Link>

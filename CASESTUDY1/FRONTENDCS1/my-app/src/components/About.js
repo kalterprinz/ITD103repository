@@ -13,7 +13,18 @@ return (
             <p className="tagline">finding venue for CCS events just got easier</p>
           </div>
           </Link>
-          <Link to={`/`} className="logbutt">Log out</Link>
+          {window.location.pathname.split('/').pop() === "00" ? (
+                <>
+                    <div className="tog">
+                    <Link to={`/signup`} className="sigbut">Sign up</Link>
+                    <Link to={`/login`} className="logbut">Log in</Link>
+                    </div>
+                </>
+                ) : (
+                <>
+                   <Link to={`/`} className="logbutt">Log out</Link>
+                </>
+                )}
         </div>
         <div className="Choose">
         {window.location.pathname.split('/').pop() === "00" ? (
