@@ -63,8 +63,9 @@ function CreateVenue() {
 
   return (
     <div>
-      <div className="Header">
-      <Link to={`/userhome/${window.location.pathname.split('/').pop()}`}>
+      
+            <div className="speco">
+              <Link to={`/userhome/${window.location.pathname.split('/').pop()}`}>
               <div className="group">
                 <p className="nest">Nest</p>
                 <p className="the">The</p>
@@ -72,7 +73,7 @@ function CreateVenue() {
                 <p className="tagline">finding venue for CCS events just got easier</p>
               </div>
               </Link>
-            </div>
+              </div>
       <div className="container">
         <form onSubmit={handleSubmit} class="my-form">
           <h2 className="fonak fonsileb">Add Venue</h2>

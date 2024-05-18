@@ -8,13 +8,14 @@ function Signup(){
     const [name, setName]=useState()
     const [college, setCollege]=useState()
     const [email, setEmail]=useState()
+    const [role, setRole]=useState("Student")
     const [password, setPassword]=useState()
 
     const navigate = useNavigate()
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-        axios.post('http://localhost:3001/signup',{name, college, email, password})
+        axios.post('http://localhost:3001/signup',{name, college, email, role, password})
         .then(res=>{
             
             console.log(res);
@@ -23,17 +24,19 @@ function Signup(){
         .catch(err => console.log(err))
     }
     return(
-        <div>
+        <div >
             
-            <div className="Header">
-            <Link to={`/`}>
+            <div className="speco">
+              <Link to={`/`}>
               <div className="group">
                 <p className="nest">Nest</p>
                 <p className="the">The</p>
                 <p className="thenest">thenest</p>
                 <p className="tagline">finding venue for CCS events just got easier</p>
               </div></Link>
+              
             </div>
+              
             <div class="container">
                 <form onSubmit={handleSubmit} class="my-form">
                     <h2 className="fonak fonsileb">Sign up</h2>
@@ -63,6 +66,17 @@ function Signup(){
                             className="form-control"
                             onChange={(e)=>setEmail(e.target.value)}
                         />
+                    </div>
+                    <div class="form-group fonak fonsiltit">
+                        <label htmlFor="">Role</label>
+                        <select
+                            className="form-control afgg"
+                            onChange={(e)=>setRole(e.target.value)}
+                        >
+                            <option value="regular">Student</option>
+                            <option value="officer">Officer</option>
+                            <option value="staff">Staff</option>
+                        </select>
                     </div>
                     <div class="form-group fonak fonsiltit">
                         <label htmlFor="">Password</label>

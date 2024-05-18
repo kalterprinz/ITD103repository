@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import { Pie } from 'react-chartjs-2';
+import { Chart, ArcElement } from 'chart.js';
+Chart.register(ArcElement);
 
 function Calendar() {
     const [data, setData] = useState([]);
     const [currentMonth, setCurrentMonth] = useState('');
     const [currentYear, setCurrentYear] = useState('');
     const [weeksInMonth, setWeeksInMonth] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
         axios.get('http://localhost:3001/')
@@ -88,11 +92,46 @@ function Calendar() {
         setCurrentYear(newYear);
         generateWeeks(newMonth, newYear);
     };
+    const filteredData = data.filter(user => {
+
+        const name = user.name ? user.name.toLowerCase() : '';
+        const search = searchQuery ? searchQuery.toLowerCase() : '';
+
+        return (
+            name.includes(search) 
+        );
+    });
+       // Count occurrences of each name
+const nameCounts = filteredData.reduce((acc, user) => {
+    acc[user.name] = (acc[user.name] || 0) + 1;
+    return acc;
+  }, {});
+  
+  // Prepare data for pie chart
+  const chartData = {
+    labels: Object.keys(nameCounts),
+    datasets: [
+        {
+            data: Object.values(nameCounts),
+            backgroundColor: Object.keys(nameCounts).map(name => {
+              console.log("Values:", name);
+                if (name === 'CCS EC') return '#2fc4ab';
+                else if (name === 'JITS') return '#4969eb';
+                else if (name === 'CA') return '#eb7171';
+                else return '#eba571';
+                
+            }),
+        },
+    ],
+  };
 
     return (
         <div>
-            <div className="Header">
-                <Link to={`/`}>
+            
+
+            <div className="bodybox">
+            <div className="Choose">
+            <Link to={`/`}>
                     <div className="group">
                         <p className="nest">Nest</p>
                         <p className="the">The</p>
@@ -100,21 +139,7 @@ function Calendar() {
                         <p className="tagline">finding venue for CCS events just got easier</p>
                     </div>
                 </Link>
-                {window.location.pathname.split('/').pop() === "00" ? (
-                <>
-                    <div className="tog">
-                    <Link to={`/signup`} className="sigbut">Sign up</Link>
-                    <Link to={`/login`} className="logbut">Log in</Link>
-                    </div>
-                </>
-                ) : (
-                <>
-                   <Link to={`/`} className="logbutt">Log out</Link>
-                </>
-                )}
-
-            </div>
-            <div className="Choose">
+                
                 {window.location.pathname.split('/').pop() === "00" ? (
                 <>
                     <Link to={`/`} className="ten">CCS Events</Link>
@@ -131,11 +156,27 @@ function Calendar() {
                     <Link to={`/contacts/${window.location.pathname.split('/').pop()}`} className="ten">Contacts</Link>
                 </>
                 )}
+                {window.location.pathname.split('/').pop() === "00" ? (
+                <>
+                    <div className="tog">
+                    <Link to={`/signup`} className="sigbut">Sign up</Link>
+                    <Link to={`/login`} className="logbut">Log in</Link>
+                    </div>
+                </>
+                ) : (
+                <>
+                    <div className="tog">
+                    <Link to={`/`} className="logbut">Log out</Link>
+                    </div>
+                </>
+                )}
         </div>
-            <div className="bodybox">
                 <div className="calendar">
                     <div className="tit fonak fonsileb">{getMonthName(currentMonth)} {currentYear}</div>
-                    
+                    <div className="monbut">
+                        <button onClick={handlePreviousMonth} >Previous Month</button>
+                        <button onClick={handleNextMonth}>Next Month</button>
+                    </div>
                     <table className="cal">
                         <thead className="fonak fonsiltit">
                             <tr>
@@ -191,11 +232,18 @@ function Calendar() {
                             ))}
                         </tbody>
                     </table>
-                    <div className="monbut">
-                        <button onClick={handlePreviousMonth} >Previous Month</button>
-                        <button onClick={handleNextMonth}>Next Month</button>
-                    </div>
+                    
                 </div>
+                <div className="Links">
+                <h4>CCS Organizations</h4>
+                    <a href="https://www.facebook.com/CCSCouncilOfficial" class="ten bit ccs-ec" target="_blank" rel="noopener noreferrer">CCS EC</a>
+                    <a href="https://www.facebook.com/jitsmsuiit" class="ten bit jits" target="_blank" rel="noopener noreferrer">JITS</a>
+                    <a href="https://www.facebook.com/ComSocOfficialPage" class="ten bit cs" target="_blank" rel="noopener noreferrer">CS</a>
+                    <a href="https://www.facebook.com/ComAppsSociety.MSUIIT" class="ten bit ca" target="_blank" rel="noopener noreferrer">CA</a>
+                    <div className="tro">
+                    <Pie data={chartData} />
+                </div>
+              </div>
             </div>
         </div>
     );

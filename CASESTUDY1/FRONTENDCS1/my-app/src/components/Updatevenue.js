@@ -82,8 +82,8 @@ function UpdateVenue() {
 
   return (
     <div>
-      <div className="Header">
-      <Link to={`/userhome/${window.location.pathname.split('/').pop()}`}>
+      <div className="speco">
+            <Link to={`/userhome/${window.location.pathname.split('/').pop()}`}>
               <div className="group">
                 <p className="nest">Nest</p>
                 <p className="the">The</p>

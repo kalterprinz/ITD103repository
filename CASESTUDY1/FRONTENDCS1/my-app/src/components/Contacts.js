@@ -4,8 +4,9 @@ function About() {
 
 return (
     <div >
-      <div className="Header">
-      <Link to={`/userhome/${window.location.pathname.split('/').pop()}`}>
+      
+        <div className="Choose">
+        <Link to={`/userhome/${window.location.pathname.split('/').pop()}`}>
           <div className="group">
             <p className="nest">Nest</p>
             <p className="the">The</p>
@@ -13,20 +14,6 @@ return (
             <p className="tagline">finding venue for CCS events just got easier</p>
           </div>
           </Link>
-          {window.location.pathname.split('/').pop() === "00" ? (
-                <>
-                    <div className="tog">
-                    <Link to={`/signup`} className="sigbut">Sign up</Link>
-                    <Link to={`/login`} className="logbut">Log in</Link>
-                    </div>
-                </>
-                ) : (
-                <>
-                   <Link to={`/`} className="logbutt">Log out</Link>
-                </>
-                )}
-        </div>
-        <div className="Choose">
         {window.location.pathname.split('/').pop() === "00" ? (
           <>
             <Link to={`/`} className="ten">CCS Events</Link>
@@ -43,6 +30,20 @@ return (
             <Link to={`/contacts/${window.location.pathname.split('/').pop()}`} className="con">Contacts</Link>
           </>
         )}
+        {window.location.pathname.split('/').pop() === "00" ? (
+                <>
+                    <div className="tog">
+                    <Link to={`/signup`} className="sigbut">Sign up</Link>
+                    <Link to={`/login`} className="logbut">Log in</Link>
+                    </div>
+                </>
+                ) : (
+                <>
+                <div className="tog">
+                    <Link to={`/`} className="logbut">Log out</Link>
+                    </div>
+                </>
+                )}
   </div>
 <div className="bodybox">
   <p className="fonak pmar jus word">
@@ -79,7 +80,16 @@ return (
             </p>
 
 
-    </div></div>
+    </div>
+    <div className="Links">
+    <h4>CCS Organizations</h4>
+          <a href="https://www.facebook.com/CCSCouncilOfficial" class="ten bit ccs-ec" target="_blank" rel="noopener noreferrer">CCS EC</a>
+          <a href="https://www.facebook.com/jitsmsuiit" class="ten bit jits" target="_blank" rel="noopener noreferrer">JITS</a>
+          <a href="https://www.facebook.com/ComSocOfficialPage" class="ten bit cs" target="_blank" rel="noopener noreferrer">CS</a>
+          <a href="https://www.facebook.com/ComAppsSociety.MSUIIT" class="ten bit ca" target="_blank" rel="noopener noreferrer">CA</a>
+      </div>
+      </div>
+    
 );
 }
 

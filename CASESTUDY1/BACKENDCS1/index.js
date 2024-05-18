@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 const UserModel = require('./User');
 const VenueModel = require('./Venue');
 var cors = require ('cors')
@@ -41,27 +42,39 @@ app.post('/login', async (req, res) => {
             return res.status(401).json({ message: "User not found" });
         }
 
-        if (user.password !== password) {
-            return res.status(401).json({ message: "Invalid password" });
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ message: 'Invalid password' });
         }
 
-        res.status(200).json({ message: "Login successful", userId: user._id });
+        res.status(200).json({ message: "Login successful", userId: user._id,role: user.role });
     } catch (error) {
         console.error("Error during login:", error);
         res.status(500).json({ message: "An error occurred during login" });
     }
 });
 
-app.post('/signup', (req, res) => {
-    UserModel.create(req.body)
-        .then(user => {
-            console.log("User created successfully:", user);
-            res.json(user);
-        })
-        .catch(err => {
-            console.error("Error creating user:", err);
-            res.status(500).json({ error: "Failed to create user" });
-        });
+app.post('/signup', async (req, res) => {
+    const { name, college, email, role, password } = req.body;
+  
+    try {
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(password, salt);
+  
+      const newUser = new UserModel({
+        name,
+        college,
+        email,
+        role,
+        password: hashedPassword,
+      });
+  
+      const user = await newUser.save();
+      res.status(201).json(user);
+    } catch (err) {
+      console.error('Error creating user:', err);
+      res.status(500).json({ error: 'Failed to create user' });
+    }
 });
 
 app.put('/updateuser/:id',(req,res)=>{

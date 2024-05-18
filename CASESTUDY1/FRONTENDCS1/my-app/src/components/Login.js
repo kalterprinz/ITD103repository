@@ -16,8 +16,20 @@ function Login() {
             const response = await axios.post('http://localhost:3001/login', { name, password });
             
             const userId = response.data.userId;
+            const role = response.data.role;
     
-            navigate(`/userhome/${userId}`) ;
+            console.log(`Response received:`, response.data); 
+            console.log(`Role received: '${role}'`);
+            
+
+            if (role === "Student") {
+                console.log('Navigating to student home');
+                navigate(`/userhomeStu/${userId}`);
+            } else {
+                console.log('Navigating to default user home');
+                navigate(`/userhome/${userId}`);
+            }
+
         } catch (error) {
             console.error('Error during login:', error);
         }
@@ -25,7 +37,8 @@ function Login() {
     
     return (
         <div>
-            <div className="Header">
+            
+            <div className="speco">
             <Link to={`/`}>
               <div className="group">
                 <p className="nest">Nest</p>

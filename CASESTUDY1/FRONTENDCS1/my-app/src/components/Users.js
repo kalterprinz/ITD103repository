@@ -60,8 +60,9 @@ function Users() {
 
     return (
         <div >
-          <div className="Header">
-          <Link to={`/userhome/${window.location.pathname.split('/').pop()}`}>
+          
+            <div className="Choose">
+            <Link to={`/userhome/${window.location.pathname.split('/').pop()}`}>
               <div className="group">
                 <p className="nest">Nest</p>
                 <p className="the">The</p>
@@ -69,14 +70,14 @@ function Users() {
                 <p className="tagline">finding venue for CCS events just got easier</p>
               </div>
               </Link>
-              <Link to={`/`} className="logbutt">Log out</Link>
-            </div>
-            <div className="Choose">
         <Link to={`/userhome/${window.location.pathname.split('/').pop()}`} className="ten">CCS Events</Link>
         <Link to={`/calendar/${window.location.pathname.split('/').pop()}`} className="ten">Calendar</Link>
         <Link to={`/user/${window.location.pathname.split('/').pop()}`} className="con">Your Events</Link>
         <Link to={`/about/${window.location.pathname.split('/').pop()}`} className="ten">About</Link>
         <Link to={`/contacts/${window.location.pathname.split('/').pop()}`} className="ten">Contacts</Link>
+        <div className="tog">
+                    <Link to={`/`} className="logbut">Log out</Link>
+                    </div>
      
       </div>
 
@@ -128,6 +129,14 @@ function Users() {
                     </tbody>
                 </table>
               </div>
+              <div className="Links">
+                    <h4>CCS Organizations</h4>
+                    <a href="https://www.facebook.com/CCSCouncilOfficial" class="ten bit ccs-ec" target="_blank" rel="noopener noreferrer">CCS EC</a>
+                    <a href="https://www.facebook.com/jitsmsuiit" class="ten bit jits" target="_blank" rel="noopener noreferrer">JITS</a>
+                    <a href="https://www.facebook.com/ComSocOfficialPage" class="ten bit cs" target="_blank" rel="noopener noreferrer">CS</a>
+                    <a href="https://www.facebook.com/ComAppsSociety.MSUIIT" class="ten bit ca" target="_blank" rel="noopener noreferrer">CA</a>
+                   
+                </div>
             </div>
         </div>
     );

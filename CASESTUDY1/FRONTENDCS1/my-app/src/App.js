@@ -9,6 +9,7 @@ import Userhome from './components/Userhome'
 import About from './components/About'
 import Contacts from './components/Contacts'
 import Calendar from './components/Calendar'
+import UserhomeStu from './components/UserhomeStu'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
                 <Route path='/about/:id' element={<About />}></Route>
                 <Route path='/contacts/:id' element={<Contacts />}></Route>
                 <Route path='/calendar/:id' element={<Calendar />}></Route>
+                <Route path='/userhomeStu/:id' element={<UserhomeStu />}></Route>
             </Routes>
         </BrowserRouter>
     )
